@@ -5,7 +5,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/)
 
 ## React Compiler
 
@@ -71,3 +71,52 @@ export default defineConfig([
   },
 ])
 ```
+
+---
+
+## ✨ HealAgent – Autonomous CI/CD Healing Dashboard
+
+**HealAgent** is a premium B2B SaaS product built for the RIFT 2026 Hackathon (AI/ML + DevOps track). It provides a futuristic, dark‑theme dashboard that lets engineering teams input a GitHub repository URL, then automatically detects, fixes, and heals CI/CD failures.
+
+### Key Features
+- **AI‑driven healing** – An autonomous backend agent analyses CI pipelines, generates patches, and applies fixes.
+- **Stunning UI** – Dark cyber‑tech aesthetic with neon cyan/purple accents, glass‑morphism cards, subtle background grid, and buttery‑smooth Framer Motion animations.
+- **Real‑time run summary** – Animated statistics (failures, fixes, duration) with a glowing status badge (PASSED/FAILED).
+- **State management** – Zustand store for mock data simulation and future real‑API integration.
+- **Responsive design** – Works flawlessly on desktop and mobile.
+
+### Tech Stack
+- **React 18 + TypeScript**
+- **Vite** for fast development builds
+- **Tailwind CSS** (custom utility classes for glass‑morphism and neon effects)
+- **Framer Motion** for layout and micro‑animations
+- **Zustand** for lightweight global state
+
+### Getting Started
+```bash
+# Install dependencies
+npm install
+
+# Run the dev server
+npm run dev
+```
+Open the app at the URL shown in the console (e.g., `http://localhost:5174`).
+
+### Project Structure
+```
+src/
+├─ components/
+│  ├─ dashboard/        # Header, RunSummaryCard, etc.
+│  └─ ui/                # Reusable UI primitives (Card, Input, etc.)
+├─ store/                # Zustand store (useAgentStore)
+├─ App.tsx               # Main layout and AnimatePresence flow
+├─ main.tsx              # Entry point
+└─ index.css             # Tailwind directives & custom utilities
+```
+
+### Contributing
+Feel free to open issues or PRs to improve the UI, add real backend integration, or enhance the AI healing logic.
+
+---
+
+*This README was updated to reflect the purpose and vision of the HealAgent project.*
