@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global glassmorphism and neon utilities */
+.glass {
+  @apply bg-black/30 backdrop-blur-md border border-white/10 rounded-xl shadow-glass;
+}
+.neon-cyan {
+  @apply text-neon-cyan shadow-neon;
+}
+.neon-purple {
+  @apply text-neon-purple shadow-neon;
+}
+.neon-emerald {
+  @apply text-neon-emerald shadow-neon;
+}
+.neon-red {
+  @apply text-neon-red shadow-neon;
+}
