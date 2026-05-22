@@ -3,8 +3,6 @@ import { devtools } from 'zustand/middleware';
 
 type Result = {
   repository: string;
-  team: string;
-  leader: string;
   branch: string;
   failures: number;
   fixes: number;
@@ -15,8 +13,8 @@ type Result = {
 interface AgentState {
   isRunning: boolean;
   results: Result | null;
-  launchAgent: (repo: string, team: string, leader: string) => void;
-  simulateRun: (repo: string, team: string, leader: string) => void; // FIXED: added simulateRun
+  launchAgent: (repo: string) => void;
+  simulateRun: (repo: string) => void;
   reset: () => void;
 }
 
