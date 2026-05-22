@@ -22,33 +22,31 @@ export const useAgentStore = create<AgentState>()(
   devtools((set) => ({
     isRunning: false,
     results: null,
-    launchAgent: (repo, team, leader) => {
+    launchAgent: (repo) => {
       set({ isRunning: true, results: null });
       // Simulate async processing (2‑3 s)
       setTimeout(() => {
         const failures = Math.floor(Math.random() * 15) + 5;
         const fixes = failures;
         const time = Math.floor(Math.random() * 90) + 30;
-        const branch = `${team.replace(/\s+/g, '_').toUpperCase()}_${leader
-          .replace(/\s+/g, '_')
-          .toUpperCase()}_AI_Fix`;
+        const repoName = repo.split('/').filter(Boolean).pop() ?? 'repo';
+        const branch = `${repoName.toUpperCase()}_AI_Fix`;
         const status = failures > 0 ? 'PASSED' : 'FAILED';
         set({
           isRunning: false,
-          results: { repository: repo, team, leader, branch, failures, fixes, time, status },
+          results: { repository: repo, branch, failures, fixes, time, status },
         });
       }, 2500);
     },
-    simulateRun: (repo, team, leader) => {
+    simulateRun: (repo) => {
       // Immediate mock data – no loading spinner
       const failures = Math.floor(Math.random() * 15) + 5;
       const fixes = failures;
       const time = Math.floor(Math.random() * 90) + 30;
-      const branch = `${team.replace(/\s+/g, '_').toUpperCase()}_${leader
-        .replace(/\s+/g, '_')
-        .toUpperCase()}_AI_Fix`;
+      const repoName = repo.split('/').filter(Boolean).pop() ?? 'repo';
+      const branch = `${repoName.toUpperCase()}_AI_Fix`;
       const status = failures > 0 ? 'PASSED' : 'FAILED';
-      set({ isRunning: false, results: { repository: repo, team, leader, branch, failures, fixes, time, status } });
+      set({ isRunning: false, results: { repository: repo, branch, failures, fixes, time, status } });
     },
     reset: () => set({ isRunning: false, results: null }),
   }))

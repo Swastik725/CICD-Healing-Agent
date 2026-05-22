@@ -6,15 +6,17 @@ import { RunSummaryCard } from '@/components/dashboard/RunSummaryCard';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Toaster } from 'sonner';
 import { useAgentStore } from '@/store/useAgentStore';
+import { useParticles } from '@/hooks/useParticles';
 
 export default function App() {
   // Local input state
   const [repo, setRepo] = React.useState('');
-  const [team, setTeam] = React.useState('');
-  const [leader, setLeader] = React.useState('');
+
+
 
   // Global store state (FIXED: use destructuring for clarity)
   const { isRunning, results, launchAgent, simulateRun } = useAgentStore();
+  useParticles();
 
   // Animation variants
   const container = {
@@ -26,12 +28,12 @@ export default function App() {
 
   const handleLaunch = () => {
     if (!repo) return;
-    launchAgent(repo, team, leader);
+    launchAgent(repo);
   };
 
   const handleSimulate = () => {
     // Use store's simulateRun to instantly generate mock data (FIXED)
-    simulateRun(repo || 'https://github.com/demo/repo', team || 'DEMO TEAM', leader || 'Demo Leader');
+    simulateRun(repo || 'https://github.com/demo/repo');
   };
 
   return (
@@ -63,18 +65,6 @@ export default function App() {
                     placeholder="https://github.com/username/repo"
                     value={repo}
                     onChange={(e) => setRepo(e.target.value)}
-                  />
-                  <Input
-                    label="Team Name"
-                    placeholder="RIFT ORGANISERS"
-                    value={team}
-                    onChange={(e) => setTeam(e.target.value)}
-                  />
-                  <Input
-                    label="Team Leader Name"
-                    placeholder="Saiyam Kumar"
-                    value={leader}
-                    onChange={(e) => setLeader(e.target.value)}
                   />
                 </motion.div>
 

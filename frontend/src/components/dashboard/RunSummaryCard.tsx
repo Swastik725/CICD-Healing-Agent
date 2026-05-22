@@ -5,8 +5,6 @@ import { cn } from '@/lib/utils';
 
 type Result = {
   repository: string;
-  team: string;
-  leader: string;
   branch: string;
   failures: number;
   fixes: number;
@@ -55,19 +53,11 @@ export const RunSummaryCard = ({ result }: { result: Result }) => {
           {result.status}
         </motion.div>
 
-        {/* Repo & team info */}
+        {/* Repo info */}
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between text-neon-cyan">
           <div className="flex items-center space-x-2">
             <span className="font-mono text-sm bg-black/30 px-2 py-1 rounded">Repo:</span>
             <span className="font-mono text-sm">{result.repository}</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <span className="font-mono text-sm bg-black/30 px-2 py-1 rounded">Team:</span>
-            <span className="font-mono text-sm">{result.team}</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <span className="font-mono text-sm bg-black/30 px-2 py-1 rounded">Leader:</span>
-            <span className="font-mono text-sm">{result.leader}</span>
           </div>
         </div>
 

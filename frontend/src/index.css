@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Custom theme tokens */
+@theme {
+  --color-neon-cyan: #00ffff;
+  --color-neon-purple: #bb00ff;
+  --color-neon-emerald: #50c878;
+  --color-neon-green: #50c878;
+  --color-neon-red: #ff0055;
+
+  --shadow-glass: 0 0 1px rgba(255, 255, 255, 0.1), 0 4px 30px rgba(0, 0, 0, 0.5);
+  --shadow-neon: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
+
+  --font-display: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-glass);
+}
